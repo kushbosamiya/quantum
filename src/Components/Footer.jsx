@@ -30,7 +30,7 @@ const PrimaryComponent = () => {
       <Flex
         mt={['.5rem']}
         mb={['.5rem']}
-        mx={{ md: '5%' }}
+        // mx={{ md: '5%' }}
         justifyContent={{ md: 'center' }}
       >
         <Text>contact us</Text>
