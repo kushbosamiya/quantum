@@ -1,0 +1,10 @@
+*{
+    /* overflow-x:hidden ;  */
+    font-family: Fonseca Bold;
+}
+@font-face {
+    font-family: Fonseca Bold ;
+    src: url("./Fonts/fonseca/Fonseca-Bold-Free-ver.otf");
+}
+
+
