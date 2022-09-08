@@ -11,6 +11,7 @@ import {
 const Footer = () => {
   return (
     <Box
+      className="animate__animated animate__fadeInLeft animate__delay-900ms"
       bg={'#1c1d1d'}
       borderTop={'2px solid #3a6d2b'}
       color={'white'}
@@ -28,6 +29,7 @@ const PrimaryComponent = () => {
   return (
     <>
       <Flex
+        className="animate__animated animate__fadeInLeft animate__delay-900ms"
         mt={['.5rem']}
         mb={['.5rem']}
         // mx={{ md: '5%' }}
@@ -43,6 +45,7 @@ const FooterLinks = () => {
   return (
     <>
       <Flex
+        className="animate__animated animate__fadeInLeft animate__delay-900ms"
         flexDirection={['column', 'row']}
         flexWrap={{ md: 'wrap' }}
         gap={['.5rem']}

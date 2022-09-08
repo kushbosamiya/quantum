@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <>
       <Flex
+        className="animate__animated animate__fadeInLeft animate__delay-900ms"
         bg={'#1c1d1d'}
         justifyContent={'center'}
         alignItems={'center'}
