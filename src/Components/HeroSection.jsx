@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Text, Image, Flex, Button } from '@chakra-ui/react';
 import Motor from '../Assets/gear-icon-with-text-25.png';
 import 'animate.css';
-// import
 
 const HeroSection = () => {
   return (
@@ -25,6 +24,8 @@ const HeroSection = () => {
 export default HeroSection;
 
 const LeftComponent = () => {
+  const ResumePath =
+    'https://drive.google.com/file/d/1vJyZP2gOoh5jJHvajZJJo5JKS-YJeLuQ/view?usp=sharing';
   return (
     <>
       <Flex
@@ -60,6 +61,7 @@ const LeftComponent = () => {
           we got what you need to run your ev.
         </Text>
         <Box>
+          {/* <Link to={'download'}> */}
           <Button
             size={['md', 'lg']}
             p={{ lg: '1.95rem' }}
@@ -71,9 +73,13 @@ const LeftComponent = () => {
               bg: 'linear-gradient(120deg, rgba(91,92,91,1) 0%, rgba(44,44,43,1) 100%)',
               color: 'white',
             }}
+            as={'a'}
+            href={ResumePath}
+            target="_blank"
           >
             <Text fontSize={{ xl: '3xl', lg: '2xl', md: 'xl' }}>know more</Text>
           </Button>
+          {/* </Link> */}
         </Box>
       </Flex>
     </>
