@@ -1,100 +1,58 @@
-import React, { useRef, useEffect, useState } from "react";
-// import "./App.css";
-
-import { supabase } from "../supabaseClient";
+import React, { useRef, useEffect } from "react";
 
 import gsap from "gsap";
 
-import { ScrollTrigger } from "gsap/all";
+import "./Custom-Styles/herosection.css";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [imageUrl, setImageUrl] = useState([]);
-  const [Fetcherrors, setFetcherrors] = useState(null);
-
-  // const imageRefs = React.useRef([]);
-  const imageElement = useRef(null);
-
-  let GearSequence = [];
-
-  async function currentFrame() {
-    // for (let index = 1; index <= 83; index++) {
-    // let path = `px-${index.toString().padStart(4, "0")}.webp`;
-    const { data, error } = await supabase.storage
-      .from("images")
-      .getPublicUrl(`0001.mp4`);
-
-    if (error) {
-      setFetcherrors(`Could not fetch the api`);
-      setImageUrl(null);
-      console.log(error);
-    }
-    if (data) {
-      let { publicUrl } = data;
-      GearSequence.push(publicUrl);
-      setImageUrl([...GearSequence]);
-    }
-    // }
-    // }
-  }
+  const videoElement = useRef(null);
 
   useEffect(() => {
-    // Use the gsap.to method to create the animation
+    const video = videoElement.current;
 
-    const images = imageElement.current;
-
-    let Controller = new ScrollMagic.Controller();
-
+    // Set up ScrollMagic controller and scene
+    const controller = new ScrollMagic.Controller();
     const scene = new ScrollMagic.Scene({
-      duration: 6000,
-      triggerElement: images,
+      duration: video.duration,
+      triggerElement: video,
       triggerHook: 0,
     })
-      // .addIndicators()
-      .addTo(Controller)
-      .setPin(images);
+      .setPin(video)
+      .addTo(controller);
 
-    // video animations
-    let accelerator = 0.1;
+    // Set up zoom animation
+    gsap.to(video, {
+      duration: 1,
+      scale: 1.05,
+      ease: "none",
+    });
+
+    // Update video current time based on scroll position
     let scrollpos = 0;
     let delay = 0;
-
+    let accelerator = 0.1;
     scene.on("update", (e) => {
       scrollpos = e.scrollPos / 1000;
     });
     setInterval(() => {
-      let video = document.querySelector("video");
       delay += (scrollpos - delay) * accelerator;
       video.currentTime = delay;
     }, 33.33);
-
-    currentFrame();
   }, []);
 
   return (
-    <>
-      <div className="parent">
-        <div className="first-child">
-          <div className="second-child">
-            <div className="third-child">
-              {imageUrl.map((video, index) => {
-                // console.log(video);
-                return (
-                  <div key={index}>
-                    <video
-                      // className="transition fading"
-                      ref={imageElement}
-                      src={video}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <div id="parent">
+      <video ref={videoElement} width="950" height="534" id="animContainer">
+        <source
+          src="https://pjswhwmbjralgwyejndl.supabase.co/storage/v1/object/public/images/0001.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
   );
 }
 

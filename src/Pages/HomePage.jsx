@@ -11,13 +11,13 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <HeroSection />
-      <PerformanceSection />
-      <AddonPerformance />
-      <ProductSection />
-      <AboutSection />
+      {/* <HeroSection /> */}
+      {/* <PerformanceSection /> */}
+      {/* <AddonPerformance /> */}
+      {/* <ProductSection /> */}
+      {/* <AboutSection /> */}
       {/* <FooterSection /> */}
-      <FooterSec />
+      {/* <FooterSec /> */}
     </>
   );
 };

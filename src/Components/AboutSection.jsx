@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Box,
   Text,
@@ -33,7 +33,9 @@ const AboutSectionSubComponent = () => {
       <Box mx={"5%"} pl={"2%"} pb={"2%"}>
         <AboutCompany />
       </Box>
-      <IndividualProfileInfo />
+      <Box px={"96px"}>
+        <IndividualProfileInfo />
+      </Box>
     </>
   );
 };
@@ -156,38 +158,69 @@ const AboutCompany = () => {
 };
 
 const IndividualProfileInfo = () => {
+  let profileInfo = [
+    {
+      name: "Harsh",
+      image: Ram,
+      title: "Harsh Dobariya , Co-Founder",
+      briefinfo:
+        "Working in research and development for electric vehicle motor technology. Along with that working on product design, manufacturability and production engineering.",
+    },
+    {
+      name: "Harshil",
+      image: Lakhan,
+      title: "Harshil Dobariya , Co-Founder",
+      briefinfo:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo consequuntur sapiente ut earum dolorum beatae, velit nulla at quasi repudiandae aspernatur illo.",
+    },
+  ];
+  // let index = Math.floor(Math.random() * profileInfo.length);
+
+  // Store the random value in a variable
+  let lastRandomValue = profileInfo[0];
+  // for handling hover text change
+  const [RadomShown, setRadomShown] = useState(null);
+  const [selectedCharacter, setSelectedCharacter] = useState(lastRandomValue);
+
   return (
     <>
-      <HStack display={"flex"}>
-        {/* conatainer-1 (contains images of individual) */}
-        <Box
-          width={"50%"}
-          justifyContent={"center"}
-          gap={"24px"}
-          display={"flex"}
+      <HStack>
+        {/* 1st container for profilepic */}
+        <HStack
           padding={"1rem"}
+          w={"60%"}
+          gap={"2rem"}
+          justifyContent={"center"}
         >
-          <Avatar
-            name="Ram"
-            _hover={{
-              border: "3px solid rgb(36, 187, 59)",
-            }}
-            src={Ram}
-            size={"2xl"}
-          />
+          {profileInfo.map((data, index) => {
+            let { name, image } = data;
+            return (
+              <span key={index}>
+                <Stack alignItems={"center"}>
+                  <Avatar
+                    name={name}
+                    _hover={{
+                      border: "3px solid rgb(36, 187, 59)",
+                    }}
+                    src={image}
+                    size={"2xl"}
+                    onMouseEnter={() => {
+                      setSelectedCharacter(data);
+                    }}
 
-          <Avatar
-            name="Lakhan"
-            _hover={{
-              border: "3px solid rgb(36, 187, 59)",
-            }}
-            src={Lakhan}
-            size={"2xl"}
-          />
-        </Box>
+                    // if its got enable then space would be remain empty
 
-        {/* container-2 (contains info. of individual) */}
-        <Box width={"50%"} padding={"1%"}>
+                    // onMouseLeave={() => setSelectedCharacter(null)}
+                  />
+                  <Text>{name}</Text>
+                </Stack>
+              </span>
+            );
+          })}
+        </HStack>
+
+        {/* 2nd container for profile info */}
+        <Stack w={"40%"} maxH={"80%"} padding={"1rem"}>
           <Box>
             {/* headline */}
             <Text
@@ -201,37 +234,36 @@ const IndividualProfileInfo = () => {
               Who we are ?
             </Text>
           </Box>
-
-          <Box display={"flex"} flexDirection={"column"}>
-            {/* for name & designnation */}
-            <Box>
-              <Text
-                textStyle="Gentona_Book"
-                fontSize={"2xl"}
-                fontWeight={"semibold"}
-                py={".5rem"}
-                opacity={"0.8"}
-              >
-                Harsh Dobariya , Co-Founder
-              </Text>
+          {selectedCharacter && (
+            <Box display={"flex"} flexDirection={"column"}>
+              {/* for name & designnation */}
+              <Box>
+                <Text
+                  textStyle="Gentona_Book"
+                  fontSize={"2xl"}
+                  fontWeight={"semibold"}
+                  py={".5rem"}
+                  opacity={"0.8"}
+                >
+                  {selectedCharacter.title}
+                </Text>
+              </Box>
+              {/* for individual domain info */}
+              <Box>
+                <Text
+                  textStyle="Gentona_Book"
+                  fontSize={"md"}
+                  fontWeight={"medium"}
+                  py={".5rem"}
+                  opacity={"0.6"}
+                  maxW={"420px"}
+                >
+                  {selectedCharacter.briefinfo}
+                </Text>
+              </Box>
             </Box>
-            {/* for individual domain info */}
-            <Box>
-              <Text
-                textStyle="Gentona_Book"
-                fontSize={"md"}
-                fontWeight={"medium"}
-                py={".5rem"}
-                opacity={"0.6"}
-                maxW={"420px"}
-              >
-                Working in research and development for electric vehicle motor
-                technology. Along with that working on product design,
-                manufacturability and production engineering.
-              </Text>
-            </Box>
-          </Box>
-        </Box>
+          )}
+        </Stack>
       </HStack>
     </>
   );

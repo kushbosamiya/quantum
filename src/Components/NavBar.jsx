@@ -6,22 +6,17 @@ import {
   useDisclosure,
   Button,
   Box,
+  Stack,
 } from "@chakra-ui/react";
 
-// logo
-import Logo from "../Assets/Navbar_Assets/new-log-4-11-22.png";
-import MobileDeviceLogo from "../Assets/Navbar_Assets/new-log-4-11.png";
+// use navigate
+import { useNavigate } from "react-router-dom";
 
-// imprting context
-// import { ThemeContext } from '../context/ThemeContext';
+// logo
+import Logo from "../Assets/Logo/new-logo.png";
 
 // icons
 import { BiMenu } from "react-icons/bi";
-import { HiOutlineNewspaper } from "react-icons/hi";
-import { FiHelpCircle } from "react-icons/fi";
-import { SiAboutdotme } from "react-icons/si";
-import { RiSettings6Line } from "react-icons/ri";
-import { BsBoxSeam } from "react-icons/bs";
 
 import {
   Drawer,
@@ -42,10 +37,12 @@ const NavBar = () => {
 export default NavBar;
 
 const NavBarContainer = () => {
+  const [SetOpen, setIsOpen] = React.useState(false);
+
+  const toggle = () => setIsOpen(!SetOpen);
   return (
     <Flex
-      h={["10vh"]}
-      // borderBottom="1px solid red"
+      h={["12vh"]}
       alignItems={["center"]}
       justifyContent={["space-between"]}
       paddingX={["5%"]}
@@ -53,7 +50,8 @@ const NavBarContainer = () => {
       textStyle="Gentona"
     >
       <NavbarLogo />
-      <HamburgerMenu />
+      <NavLinks SetOpen={SetOpen} />
+      <HamburgerMenu toggle={toggle} SetOpen={SetOpen} />
     </Flex>
   );
 };
@@ -62,26 +60,9 @@ const NavBarContainer = () => {
 const NavbarLogo = () => {
   return (
     <>
-      <Flex
-        textStyle="Gentona"
-        flexBasis={["45%", "40%", "30%", "20%"]}
-        justifyContent={["start"]}
-      >
-        <Image
-          display={["none", "block"]}
-          boxSize={["0%", "75%", "80%"]}
-          src={Logo}
-          fallbackSrc="https://dummyimage.com/900x300/E2E2E2/aaa
-          "
-        />
-        <Image
-          boxSize={["100%", "90%"]}
-          display={["block", "none"]}
-          src={MobileDeviceLogo}
-          fallbackSrc="https://dummyimage.com/900x300/E2E2E2/aaa
-          "
-        />
-      </Flex>
+      <Box textStyle="Gentona" flexBasis={["150px", "180px"]}>
+        <Image h={"100%"} width={["100%"]} src={Logo} objectFit={"cover"} />
+      </Box>
     </>
   );
 };
@@ -94,6 +75,7 @@ const HamburgerMenu = () => {
   return (
     <>
       <Button
+        display={["inline-flex", "none"]}
         _active={{
           bg: "none",
           outline: "none",
@@ -113,8 +95,12 @@ const HamburgerMenu = () => {
         onClose={onClose}
         finalFocusRef={btnRef}
       >
-        <DrawerOverlay />
-        <DrawerContent bg="#121212" textStyle="Gentona">
+        <DrawerOverlay display={["flex", "none"]} />
+        <DrawerContent
+          bg="#121212"
+          textStyle="Gentona"
+          display={["flex", "none"]}
+        >
           <DrawerCloseButton
             size={30}
             marginY={"2rem"}
@@ -122,7 +108,6 @@ const HamburgerMenu = () => {
             _hover={{ bg: "none" }}
             color="white"
           />
-          {/* <DrawerHeader>header</DrawerHeader> */}
 
           <DrawerBody
             display={"flex"}
@@ -134,82 +119,70 @@ const HamburgerMenu = () => {
             top={"25%"}
             width="100%"
           >
-            <Box
-              display={"flex"}
-              alignItems={"center"}
-              gap={"1rem"}
-              padding={"1vmax"}
-            >
-              <BsBoxSeam size={24} />
-              <Text
-                fontSize={["md", "lg"]}
-                _hover={{ color: "#16AA51", cursor: "pointer" }}
-              >
-                Products
-              </Text>
-            </Box>
-            <Box
-              display={"flex"}
-              alignItems={"center"}
-              gap={"1rem"}
-              padding={"1vmax"}
-            >
-              <RiSettings6Line size={24} />
-              <Text
-                fontSize={["md", "lg"]}
-                _hover={{ color: "#16AA51", cursor: "pointer" }}
-              >
-                Performance
-              </Text>
-            </Box>
-
-            <Box
-              display={"flex"}
-              alignItems={"center"}
-              gap={"1rem"}
-              padding={"1vmax"}
-            >
-              <HiOutlineNewspaper size={24} />
-              <Text
-                fontSize={["md", "lg"]}
-                _hover={{ color: "#16AA51", cursor: "pointer" }}
-              >
-                Blogs
-              </Text>
-            </Box>
-
-            <Box
-              display={"flex"}
-              alignItems={"center"}
-              gap={"1rem"}
-              padding={"1vmax"}
-            >
-              <SiAboutdotme size={24} />
-              <Text
-                fontSize={["md", "lg"]}
-                _hover={{ color: "#16AA51", cursor: "pointer" }}
-              >
-                About Us
-              </Text>
-            </Box>
-
-            <Box
-              display={"flex"}
-              alignItems={"center"}
-              gap={"1rem"}
-              padding={"1vmax"}
-            >
-              <FiHelpCircle size={24} />
-              <Text
-                fontSize={["md", "lg"]}
-                _hover={{ color: "#16AA51", cursor: "pointer" }}
-              >
-                Contact
-              </Text>
-            </Box>
+            <NavLinks isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
+    </>
+  );
+};
+
+const NavLinks = ({ isOpen, onOpen, onClose }) => {
+  return (
+    <>
+      <Box
+        display={[isOpen ? "inline-flex" : "none", "flex"]}
+        flexDirection={["column", "row"]}
+        justifyContent={"space-around"}
+        alignItems={["start", "center"]}
+        flexBasis={["50%", "30%"]}
+        gap={["1rem"]}
+        minH={["100%"]}
+      >
+        <Box alignItems={"center"} gap={"1rem"}>
+          <Text
+            fontSize={["md", "lg"]}
+            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          >
+            Products
+          </Text>
+        </Box>
+        <Box display={"flex"} alignItems={"center"} gap={"1rem"}>
+          <Text
+            fontSize={["md", "lg"]}
+            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          >
+            Performance
+          </Text>
+        </Box>
+
+        <Box alignItems={"center"} gap={"1rem"} display={["flex", "none"]}>
+          <Text
+            fontSize={["md", "lg"]}
+            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          >
+            Blogs
+          </Text>
+        </Box>
+
+        <Box display={["flex", "none"]} alignItems={"center"} gap={"1rem"}>
+          <Text
+            fontSize={["md", "lg"]}
+            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          >
+            About Us
+          </Text>
+        </Box>
+
+        <Box display={"flex"} alignItems={"center"} gap={"1rem"}>
+          <Text
+            fontSize={["md", "lg"]}
+            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          >
+            Contact
+          </Text>
+        </Box>
+      </Box>
     </>
   );
 };

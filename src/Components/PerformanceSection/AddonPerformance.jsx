@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Box, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
 
 // video source
-import HubMotorVideo from "../../Assets/HeroSection_Assets/0001.mp4";
+// import HubMotorVideo from "../../Assets/HeroSection_Assets/0001.mp4";
+import HubMotorVideo from "../../Assets/addonsection/hub-motor-with-scooter.mp4";
 
 const AddonPerformance = () => {
   return (
@@ -22,7 +23,7 @@ const AddonPerformanceContainer = () => {
         <HStack display={"flex"} justifyContent={"space-between"} my={"1%"}>
           {/* flex start */}
           <HStack>
-            <Box>
+            <Box border={"1px solid red"}>
               <Text
                 textStyle="Gentona Medium"
                 color={"white"}
@@ -35,63 +36,6 @@ const AddonPerformanceContainer = () => {
           </HStack>
 
           {/* flex end */}
-          <Stack display={"flex"} justifyContent={"end"}>
-            <Box
-              fontSize={"2xl"}
-              fontStyle={"italic"}
-              display={"flex"}
-              gap={".25rem"}
-              textStyle="Gentona"
-            >
-              <span
-                style={{
-                  fontWeight: "300",
-                  // color: "#CCCCCC",
-                  color: "#BABABA",
-                  opacity: "0.8",
-                }}
-              >
-                {" "}
-                Design in
-              </span>
-              <span
-                style={{
-                  fontWeight: "500",
-                  color: "#fff",
-                  opacity: "1",
-                }}
-              >
-                GUJ {`(IND)`}
-              </span>
-            </Box>
-
-            <Box
-              textStyle="Gentona"
-              fontSize={"2xl"}
-              fontStyle={"italic"}
-              display={"flex"}
-              gap={".25rem"}
-            >
-              <span
-                style={{
-                  fontWeight: "300",
-                  color: "#BABABA",
-                  opacity: "0.8",
-                }}
-              >
-                Curated by{" "}
-              </span>
-              <span
-                style={{
-                  fontWeight: "500",
-                  color: "white",
-                  opacity: "1",
-                }}
-              >
-                QEV STUDIO
-              </span>
-            </Box>
-          </Stack>
         </HStack>
         {/* container-body  */}
         <Box display={"flex"} justifyContent={"space-between"}>
@@ -137,6 +81,34 @@ const AddonPerformanceContainer = () => {
                 Electric Vehicles segment
               </Text>
             </Box>
+            <Stack display={"flex"} justifyContent={"end"}>
+              <Box
+                textStyle="Gentona"
+                fontSize={"2xl"}
+                fontStyle={"italic"}
+                display={"flex"}
+                gap={".25rem"}
+              >
+                <span
+                  style={{
+                    fontWeight: "300",
+                    color: "#BABABA",
+                    opacity: "0.8",
+                  }}
+                >
+                  Curated by{" "}
+                </span>
+                <span
+                  style={{
+                    fontWeight: "500",
+                    color: "white",
+                    opacity: "1",
+                  }}
+                >
+                  QEV STUDIO
+                </span>
+              </Box>
+            </Stack>
           </Stack>
           {/* container body box-2 */}
           <Box maxw={"65%"} w={"50%"}>
@@ -158,8 +130,3 @@ const AddonPerformanceContainer = () => {
     </>
   );
 };
-
-// AddonPerformanceContainer microcomponent
-{
-  /* <video src="https://olaelectric-videos.azureedge.net/olaelectric-videos/optimized/performance/all-terrain.mp4" preload="auto" loop controlslist="noplaybackrate nodownload nofullscreen" disablepictureinpicture playsinline webkit-playsinline x5-playsinline style="width: 100%; height: 100%;" autoplay></video> */
-}

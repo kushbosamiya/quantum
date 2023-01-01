@@ -1,0 +1,23 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  /* height: 5000px; */
+  /* //todo if you uncomment it will do scroll properly */
+}
+
+.animContainer {
+  border: 1px solid blue;
+  margin-left: 20%;
+  max-width: 80%;
+  margin-right: 20%;
+  margin: 0 auto;
+  position: fixed;
+}
+#parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}

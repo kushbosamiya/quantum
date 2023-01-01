@@ -9,14 +9,13 @@ import {
   Image,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 import { SiInstagram } from "react-icons/si";
 import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { FiFacebook } from "react-icons/fi";
 
 // images
-import Logos from "../Assets/Navbar_Assets/new-log-4-11-22.png";
+import Logos from "../Assets/Logo/new-logo.png";
 
 const Logo = () => {
   return (

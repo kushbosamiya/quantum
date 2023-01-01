@@ -2,11 +2,11 @@ import React from "react";
 import { Box, Heading, HStack, Text, Flex, Image } from "@chakra-ui/react";
 
 // images
-import Ice from "../../src/Assets/Performance_Assets/final-ice.png";
+import Ice from "../../src/Assets/productsection/rm-prod-1.png";
 
-import Rain from "../../src/Assets/Performance_Assets/final-rain.png";
+import Rain from "../../src/Assets/productsection/rm-prod-2.png";
 
-import Sand from "../../src/Assets/Performance_Assets/final-sand.png";
+import Sand from "../../src/Assets/productsection/rm-prod-3.png";
 
 const ProductSection = () => {
   return (
