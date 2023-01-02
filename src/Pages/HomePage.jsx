@@ -10,7 +10,7 @@ import FooterSec from "../Components/FooterSec";
 const HomePage = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <HeroSection /> */}
       <PerformanceSection />
       <AddonPerformance />

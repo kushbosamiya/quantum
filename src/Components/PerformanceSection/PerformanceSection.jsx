@@ -103,6 +103,8 @@ const SliderComponent = () => {
           return (
             <span key={index}>
               <HStack
+                paddingX={["5%"]}
+                paddingY={["2%", "1%"]}
                 // 1st child
                 h={"12vh"}
                 justifyContent={"space-around"}
@@ -237,7 +239,8 @@ const SliderComponent = () => {
               </HStack>
 
               <Box
-                padding={["2%"]}
+                paddingX={["5%"]}
+                paddingY={["2%", "1%"]}
                 marginTop={{ xl: "1rem" }}
                 width={["100%", "80%", "70%", "60%"]}
                 // boxSize={["xs", "50%"]}
@@ -247,7 +250,7 @@ const SliderComponent = () => {
                 justifyContent={"center"}
                 alignItems={"center"}
               >
-                <Image src={image} />
+                <Image src={image} marginY={["2rem", "3rem", "0"]} />
               </Box>
             </span>
           );
@@ -258,7 +261,8 @@ const SliderComponent = () => {
         width={["100%", "100%"]}
         position={["relative", "absolute"]}
         bottom={["-5%", "0%", "30%"]}
-        padding={["2%"]}
+        paddingX={["5%"]}
+        paddingY={["2%", "1%"]}
         display={"flex"}
         marginLeft={["0", "5%"]}
         justifyContent={["center", "center", "start"]}
@@ -267,7 +271,7 @@ const SliderComponent = () => {
           <Text
             fontWeight={"500"}
             lineHeight={"120%"}
-            fontSize={["2xl", "3xl", "4xl", "5xl"]}
+            fontSize={["2xl", "3xl", "4xl", "5xl", "6xl"]}
             textShadow={"1.728px 1.728px 0px rgba(146, 200, 62, 0.5)"}
             textStyle="Gentona"
           >
