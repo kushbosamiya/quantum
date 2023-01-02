@@ -159,6 +159,9 @@ const ProductSectionContent = () => {
                     _hover={{
                       boxShadow: "3px 3px 3px 2px #92c83e",
                     }}
+                    as={"a"}
+                    href="https://drive.google.com/file/d/1vJyZP2gOoh5jJHvajZJJo5JKS-YJeLuQ/view?usp=sharing"
+                    target="_blank"
                   >
                     Know more
                   </Button>
