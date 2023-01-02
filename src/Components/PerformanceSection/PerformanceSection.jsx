@@ -258,16 +258,27 @@ const SliderComponent = () => {
       </Slider>
       {/* headding */}
       <Box
-        width={["100%", "100%"]}
-        position={["relative", "absolute"]}
-        bottom={["-5%", "0%", "30%"]}
-        paddingX={["5%"]}
-        paddingY={["2%", "1%"]}
+        width={["100%"]}
+        position={["relative", "relative", "absolute"]}
+        bottom={["-5%", "5%", "30%"]}
+        paddingX={["5%", "0%"]}
+        paddingY={["2%", "0%"]}
         display={"flex"}
+        flexDirection={["column"]}
         marginLeft={["0", "5%"]}
-        justifyContent={["center", "center", "start"]}
+        justifyContent={["center", "center"]}
       >
-        <Heading textAlign={{ xl: "center" }}>
+        <Text
+          fontWeight={"400"}
+          fontStyle={"italic"}
+          lineHeight={"120%"}
+          fontSize={["2xl", "3xl", "4xl"]}
+          opacity={"0.5"}
+          textStyle="Gentona"
+        >
+          Whatever it may be,
+        </Text>
+        <Heading my={"1rem"} ml={["15%", "0%"]}>
           <Text
             fontWeight={"500"}
             lineHeight={"120%"}

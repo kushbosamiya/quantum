@@ -46,7 +46,6 @@ const ComapanyMotto = () => {
       <HStack>
         <Heading>
           <Box
-            width={"320px"}
             textStyle="Gentona Medium"
             display={"flex"}
             flexDir={"column"}

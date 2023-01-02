@@ -156,6 +156,24 @@ const AddonPerformanceContainer = () => {
             ></video>
           </Box>
         </Box>
+
+        {/* last tag line */}
+        <HStack
+          padding={"1rem"}
+          display={["none", "flex"]}
+          justifyContent={"center"}
+        >
+          <Heading>
+            <Text
+              textStyle="Gentona Medium"
+              color={"white"}
+              fontWeight={"100"}
+              fontSize={["3xl", "4xl", "5xl"]}
+            >
+              Electrify Your Ride Today
+            </Text>
+          </Heading>
+        </HStack>
       </Stack>
     </>
   );

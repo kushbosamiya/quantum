@@ -6,6 +6,7 @@ import AddonPerformance from "../Components/PerformanceSection/AddonPerformance"
 import ProductSection from "../Components/ProductSection";
 import AboutSection from "../Components/AboutSection";
 import FooterSection from "../Components/FooterSection";
+import ContactSection from "../Components/ContactSection";
 import FooterSec from "../Components/FooterSec";
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
       <ProductSection />
       <AboutSection />
       {/* <FooterSection /> */}
+      <ContactSection />
       <FooterSec />
     </>
   );
