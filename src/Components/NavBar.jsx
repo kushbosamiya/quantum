@@ -141,7 +141,7 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
       >
         <Box alignItems={"center"} gap={"1rem"}>
           <Text
-            fontSize={["md", "lg"]}
+            fontSize={["md", "lg", "xl"]}
             _hover={{ color: "#16AA51", cursor: "pointer" }}
           >
             Products
@@ -149,7 +149,7 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
         </Box>
         <Box display={"flex"} alignItems={"center"} gap={"1rem"}>
           <Text
-            fontSize={["md", "lg"]}
+            fontSize={["md", "lg", "xl"]}
             _hover={{ color: "#16AA51", cursor: "pointer" }}
           >
             Performance
@@ -158,7 +158,7 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
 
         <Box alignItems={"center"} gap={"1rem"} display={["flex", "none"]}>
           <Text
-            fontSize={["md", "lg"]}
+            fontSize={["md", "lg", "xl"]}
             _hover={{ color: "#16AA51", cursor: "pointer" }}
           >
             Blogs
@@ -167,7 +167,7 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
 
         <Box display={["flex", "none"]} alignItems={"center"} gap={"1rem"}>
           <Text
-            fontSize={["md", "lg"]}
+            fontSize={["md", "lg", "xl"]}
             _hover={{ color: "#16AA51", cursor: "pointer" }}
           >
             About Us
@@ -176,7 +176,7 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
 
         <Box display={"flex"} alignItems={"center"} gap={"1rem"}>
           <Text
-            fontSize={["md", "lg"]}
+            fontSize={["md", "lg", "xl"]}
             _hover={{ color: "#16AA51", cursor: "pointer" }}
           >
             Contact

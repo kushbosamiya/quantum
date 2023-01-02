@@ -115,7 +115,8 @@ const ProductSectionContent = () => {
                 <Box display={"flex"} p={".5rem"} justifyContent={"center"}>
                   <Image
                     // border={"1px solid"}
-                    boxShadow={["3xl", "2xl"]}
+                    height={["200px"]}
+                    width={["300px"]}
                     src={img}
                     borderRadius={"md"}
                   />

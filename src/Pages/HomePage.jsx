@@ -15,9 +15,9 @@ const HomePage = () => {
       <PerformanceSection />
       <AddonPerformance />
       <ProductSection />
-      {/* <AboutSection /> */}
+      <AboutSection />
       {/* <FooterSection /> */}
-      {/* <FooterSec /> */}
+      <FooterSec />
     </>
   );
 };

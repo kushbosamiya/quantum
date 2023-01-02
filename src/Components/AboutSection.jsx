@@ -17,7 +17,7 @@ import Lakhan from "../../src/Assets/Performance_Assets/lakhan.png";
 const AboutSection = () => {
   return (
     <>
-      <Box paddingX={{ md: "5%" }} paddingY={["2%", "1%"]}>
+      <Box paddingX={["5%"]} paddingY={["2%", "1%"]}>
         <AboutSectionSubComponent />
       </Box>
     </>
@@ -33,9 +33,9 @@ const AboutSectionSubComponent = () => {
       <Box mx={"5%"} pl={"2%"} pb={"2%"}>
         <AboutCompany />
       </Box>
-      <Box px={"96px"}>
+      {/* <Box px={"96px"}>
         <IndividualProfileInfo />
-      </Box>
+      </Box> */}
     </>
   );
 };
@@ -54,20 +54,19 @@ const ComapanyMotto = () => {
             // textAlign={"center"}
           >
             <Text
-              fontSize={"2xl"}
-              lineHeight={"48px"}
-              //   opacity={"0.9"}
-              color={"rgb(186,186,186)"}
+              fontSize={["xl", "2xl", "3xl"]}
+              lineHeight={"170%"}
+              opacity={"0.6"}
               fontWeight={"600"}
             >
               {/* color={"#E2E2E2"}> */}
               Future is electric ,
             </Text>
             <Text
-              lineHeight={"30px"}
+              lineHeight={"170%"}
               fontWeight={"600"}
               //   lineHeight={"120%"}
-              fontSize={["4xl"]}
+              fontSize={["2xl", "3xl", "4xl"]}
               textShadow={"1.728px 1.728px 0px rgba(146, 200, 62, 0.5)"}
             >
               And Electric is here
@@ -82,75 +81,46 @@ const ComapanyMotto = () => {
 const AboutCompany = () => {
   return (
     <HStack>
-      <Box ml={"15%"} py={"5%"}>
+      <Box
+        ml={["0%", "5%", "10%"]}
+        py={"5%"}
+        display={"flex"}
+        flexDirection={"column"}
+        flexWrap={"wrap"}
+        gap={".25rem"}
+      >
         <span
           style={{
             position: "absolute",
             width: "36px",
             height: "4px",
             background: "rgb(36, 187, 59)",
-            // marginTop: "-0.5%",
+            marginTop: "-0.5%",
             marginBottom: "1%",
           }}
         ></span>
         <Text
           textStyle="Gentona_Book"
-          lineHeight={"24px"}
+          lineHeight={"170%"}
           mt={"12px"}
-          fontSize={"md"}
-          width={"600px"}
+          fontSize={["lg", "larger", "xl"]}
+          width={{ xl: "600px" }}
           opacity={"0.6"}
         >
           QuantumEV Tech is a future enthusiastic company, working to redefine
-          mobility as we know it . Electric is here and we at Quantum wants to
-          deliver Quintessential Hub motors for the Indian EV makers.
+          mobility as we know it. Electric is here and we at Quantum wants to
+          deliver quintessential Hub motors for the Indian EV makers.
         </Text>
         <Text
           textStyle="Gentona_Book"
-          lineHeight={"24px"}
+          lineHeight={"170%"}
           mt={"12px"}
-          fontSize={"md"}
-          width={"600px"}
+          fontSize={["lg", "larger", "xl"]}
+          width={{ xl: "600px" }}
           opacity={"0.6"}
         >
-          Building everything from the ground up team Quantum is going length
-          and breaths to evolve Indian EV market.
-        </Text>
-        <Text
-          lineHeight={"24px"}
-          mt={"12px"}
-          fontSize={"md"}
-          width={"600px"}
-          opacity={"0.6"}
-        >
-          QEV Tech is aspiring leading manufacturer of BLDC Hub Motors for
-          Electric Vehicles
-        </Text>{" "}
-        <Text
-          textStyle="Gentona_Book"
-          lineHeight={"24px"}
-          mt={"12px"}
-          fontSize={"md"}
-          width={"600px"}
-          opacity={"0.6"}
-        >
-          Through our innovative tech, we are going to build indigenous BLDC
-          Motors, Hub Motors for two, three and four wheel Electric Vehicles
-          segment.
-        </Text>
-        {/*  */}
-        <Text
-          textStyle="Gentona_Book"
-          lineHeight={"24px"}
-          mt={"12px"}
-          fontSize={"md"}
-          width={"600px"}
-          opacity={"0.6"}
-        >
-          Under our Q-Stator division, we are going to offer slinky stators to
-          AC motor manufacturers. Our USP for this stators are the production
-          and price offerings which are substantially economical compare to our
-          peers.
+          Building everything from ground up team Quantum is going lengths and
+          breaths to evolve Indian EV market.
         </Text>
       </Box>
     </HStack>

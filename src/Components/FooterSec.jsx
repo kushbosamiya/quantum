@@ -20,7 +20,7 @@ import Logos from "../Assets/Logo/new-logo.png";
 const Logo = () => {
   return (
     <>
-      <Image src={Logos} width={"20%"} />
+      <Image src={Logos} width={["50%", "30%", "20%"]} />
     </>
   );
 };
@@ -51,7 +51,7 @@ const SocialButton = ({ children }) => {
 
 export default function SmallCentered() {
   return (
-    <Box bg={"#F2F4F6"} color={useColorModeValue("gray.700", "gray.200")}>
+    <Box color={useColorModeValue("gray.700", "gray.200")}>
       <Container
         as={Stack}
         maxW={"6xl"}
@@ -62,10 +62,18 @@ export default function SmallCentered() {
       >
         <Logo />
         <Stack direction={"row"} spacing={6}>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>About</Link>
-          <Link href={"#"}>Blog</Link>
-          <Link href={"#"}>Contact</Link>
+          <Link href={"#"} fontSize={["lg"]}>
+            Home
+          </Link>
+          <Link href={"#"} fontSize={["lg"]}>
+            About
+          </Link>
+          <Link href={"#"} fontSize={["lg"]}>
+            Blog
+          </Link>
+          <Link href={"#"} fontSize={["lg"]}>
+            Contact
+          </Link>
         </Stack>
       </Container>
 
@@ -83,9 +91,14 @@ export default function SmallCentered() {
           justify={{ base: "center", md: "space-between" }}
           align={{ base: "center", md: "center" }}
         >
-          <Text>© 2022 Quantum Ev-Tech All rights reserved</Text>
+          <Text textAlign={"center"}>
+            © 2022 Quantum Ev-Tech All rights reserved
+          </Text>
           <Stack direction={"row"} spacing={6}>
-            <SocialButton label={"Twitter"} href={"#"}>
+            <SocialButton
+              label={"Twitter"}
+              href={"https://twitter.com/14harsheel"}
+            >
               <BsTwitter />
             </SocialButton>
             <SocialButton label={"YouTube"} href={"#"}>
