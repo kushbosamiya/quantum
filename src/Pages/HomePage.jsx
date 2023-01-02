@@ -14,7 +14,7 @@ const HomePage = () => {
       {/* <HeroSection /> */}
       <PerformanceSection />
       <AddonPerformance />
-      {/* <ProductSection /> */}
+      <ProductSection />
       {/* <AboutSection /> */}
       {/* <FooterSection /> */}
       {/* <FooterSec /> */}

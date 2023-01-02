@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Heading, HStack, Text, Flex, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  HStack,
+  Text,
+  Flex,
+  Image,
+  Stack,
+} from "@chakra-ui/react";
 
 // images
 import Ice from "../../src/Assets/productsection/rm-prod-1.png";
@@ -50,34 +58,41 @@ const ProductSectionHeadline = () => {
 const ProductSectionContent = () => {
   const CardData = [
     {
-      img: Ice,
+      img: Rain,
       title: `17inch Q-HUB`,
-      content: `Best suited for motorcycle's rear wheels, our 17" BLDC hub motor can run smoothly even at high speeds and loads`,
-      range: `POWER RANGE 2000W to 3000W`,
+      content: `Best suited for motorcycle’s 
+      rear wheels, our 17” BLDC Hub 
+      Motor can run smoothly even at 
+      high speeds and heavy loads.`,
       backgroundColor: `#FAEFE7`,
     },
     {
-      img: Rain,
+      img: Sand,
       title: `10inch Q-HUB`,
-      content: `Our 10" BLDC Hub Motor designed and developed with world class quality with efficiecy upto 92%`,
-      range: `POWER RANGE 800W to 1500W`,
+      content: `Our 10” BLDC Hub Motor 
+      designed and developed 
+      with world class quality with 
+      efciency upto 89%.`,
       backgroundColor: `#F3F7EA`,
     },
     {
-      img: Sand,
+      img: Ice,
       title: `5inch Q-HUB`,
-      content: `Indegenously designed for electric bycycles it gives highest power and output`,
-      range: `POWER RANGE 250W to 500W`,
-      backgroundColor: `#F0EFE6`,
+      content: `Indigenously designed for 
+      electric bicycles it gives 
+      highest power and 
+      perormance output. `,
+      backgroundColor: `#EFF2FA`,
     },
   ];
 
   return (
     <>
-      <HStack my={"2%"}>
+      <HStack my={"2%"} flexWrap={"wrap"}>
         {/* for row wise changes use below mention flex */}
         <Flex
-          //   border={"1px solid red"}
+          // border={"1px solid red"}
+          flexWrap={"wrap"}
           w={"100%"}
           gap={"24px"}
           justifyContent={"space-between"}
@@ -85,24 +100,22 @@ const ProductSectionContent = () => {
           {CardData.map((item, index) => {
             let { img, title, content, range, backgroundColor } = item;
             return (
-              <Box
-                padding={"2%"}
-                w={"340px"}
+              <Stack
+                padding={"1rem"}
                 key={index}
                 display={"flex"}
-                flexDir={"column"}
                 justifyContent={"space-around"}
-                // border={"1px solid lightgray"}
                 background={backgroundColor}
-                borderRadius={".5rem"}
+                borderRadius={"md"}
+                w={"350px"}
+                minH={"md"}
               >
                 {/* image */}
-                <Box my={"5%"}>
+                <Box display={"flex"} justifyContent={"center"}>
                   <Image
+                    // border={"1px solid"}
                     src={img}
-                    maxW={"100%"}
                     borderRadius={".25rem"}
-                    objectFit={"cover"}
                   />
                 </Box>
                 {/* title */}
@@ -110,7 +123,7 @@ const ProductSectionContent = () => {
                   <Text
                     textStyle="Gentona Medium"
                     fontWeight={"100"}
-                    fontSize={"2xl"}
+                    fontSize={["2xl", "3xl", "4xl"]}
                     lineHeight={"20px"}
                   >
                     {title}
@@ -141,7 +154,7 @@ const ProductSectionContent = () => {
                     {range}
                   </Text>
                 </Box>
-              </Box>
+              </Stack>
             );
           })}
         </Flex>
