@@ -81,7 +81,7 @@ const SliderComponent = () => {
   const [slider, setSlider] = useState(<Slider />);
 
   return (
-    <Box position={"relative"} width={["full"]} overflow={"hidden"} px={"5%"}>
+    <Box position={"relative"} width={["full"]} overflow={"hidden"}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -260,6 +260,7 @@ const SliderComponent = () => {
         bottom={["-5%", "0%", "30%"]}
         padding={["2%"]}
         display={"flex"}
+        marginLeft={["0", "5%"]}
         justifyContent={["center", "center", "start"]}
       >
         <Heading textAlign={{ xl: "center" }}>
