@@ -271,7 +271,7 @@ const SliderComponent = () => {
           <Text
             fontWeight={"500"}
             lineHeight={"120%"}
-            fontSize={["2xl", "3xl", "4xl", "5xl", "6xl"]}
+            fontSize={["3xl", "4xl", "5xl", "6xl"]}
             textShadow={"1.728px 1.728px 0px rgba(146, 200, 62, 0.5)"}
             textStyle="Gentona"
           >

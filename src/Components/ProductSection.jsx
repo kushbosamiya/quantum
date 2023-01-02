@@ -7,14 +7,15 @@ import {
   Flex,
   Image,
   Stack,
+  Button,
 } from "@chakra-ui/react";
 
 // images
-import Ice from "../../src/Assets/productsection/rm-prod-1.png";
+import Ice from "../../src/Assets/productsection/prod-1.jpeg";
 
-import Rain from "../../src/Assets/productsection/rm-prod-2.png";
+import Rain from "../../src/Assets/productsection/prod-2.jpeg";
 
-import Sand from "../../src/Assets/productsection/rm-prod-3.png";
+import Sand from "../../src/Assets/productsection/prod-3.jpeg";
 
 const ProductSection = () => {
   return (
@@ -44,7 +45,7 @@ const ProductSectionHeadline = () => {
           my={[".25rem"]}
           fontWeight={"500"}
           letterSpacing={"-1px"}
-          fontSize={"4xl"}
+          fontSize={["3xl", "4xl"]}
           textShadow={"1.728px 1.728px 0px rgb(146 200 62 / 50%)"}
           textStyle="Gentona"
         >
@@ -111,49 +112,56 @@ const ProductSectionContent = () => {
                 minH={"md"}
               >
                 {/* image */}
-                <Box display={"flex"} justifyContent={"center"}>
+                <Box display={"flex"} p={".5rem"} justifyContent={"center"}>
                   <Image
                     // border={"1px solid"}
+                    boxShadow={["3xl", "2xl"]}
                     src={img}
-                    borderRadius={".25rem"}
+                    borderRadius={"md"}
                   />
                 </Box>
                 {/* title */}
-                <Box p={"1%"} my={"5%"}>
+                <Box p={".5rem"} my={"5%"}>
                   <Text
                     textStyle="Gentona Medium"
                     fontWeight={"100"}
-                    fontSize={["2xl", "3xl", "4xl"]}
+                    fontSize={["3xl", "4xl"]}
                     lineHeight={"20px"}
                   >
                     {title}
                   </Text>
                 </Box>
                 {/* content */}
-                <Box p={"1%"}>
+                <Box p={".5rem"} my={"5%"}>
                   <Text
-                    noOfLines={"3"}
-                    width={"258px"}
-                    my={"10px"}
+                    // noOfLines={"4"}
                     textStyle="Gentona_Book"
                     fontWeight={"400"}
-                    fontSize={"md"}
+                    lineHeight={"170%"}
+                    fontSize={["lg", "xl"]}
                     opacity={"0.6"}
                   >
                     {content}
                   </Text>
                 </Box>
                 {/* range */}
-                <Box p={"1%"}>
-                  <Text
-                    // opacity={"0.4"}
-                    color={"#16AA51"}
-                    textStyle="Gentona"
-                    fontSize={"sm"}
-                  >
+                <HStack p={".5rem"} my={"5%"} justifyContent={"center"}>
+                  {/* <Text color={"#16AA51"} textStyle="Gentona">
                     {range}
-                  </Text>
-                </Box>
+                  </Text> */}
+                  <Button
+                    backgroundColor={"rgba(0,0,0,0.8)"}
+                    textStyle="Gentona"
+                    color={"white"}
+                    borderRadius={"sm"}
+                    size={"lg"}
+                    _hover={{
+                      boxShadow: "3px 3px 3px 2px #92c83e",
+                    }}
+                  >
+                    Know more
+                  </Button>
+                </HStack>
               </Stack>
             );
           })}

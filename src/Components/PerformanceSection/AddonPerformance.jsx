@@ -46,12 +46,13 @@ const AddonPerformanceContainer = () => {
         <Box
           display={"flex"}
           justifyContent={"space-between"}
-          flexDirection={["column", "column", "row"]}
+          flexDirection={["column", "column", "column", "row"]}
           gap={"1rem"}
         >
           {/* container body box-1 */}
           <Stack
-            maxW={["100%", "100%", "45%", "35%"]}
+            maxW={["100%", "100%", "100%", "50%"]}
+            // maxW={["100%", "100%", "45%", "35%"]}
             display={"flex"}
             gap={".75rem"}
             flexDirection={"column"}
@@ -77,7 +78,7 @@ const AddonPerformanceContainer = () => {
                 </Text>
               </Heading>
             </Box>
-            <Box>
+            <Stack spacing={"1rem"}>
               <Text
                 textStyle="Gentona_Book"
                 fontWeight={"400"}
@@ -94,6 +95,7 @@ const AddonPerformanceContainer = () => {
                 upgrading your electric vehicle.
               </Text>
               <Text
+                display={["none", "block"]}
                 textStyle="Gentona_Book"
                 fontWeight={"400"}
                 fontSize={["md", "lg", "xl"]}
@@ -106,7 +108,7 @@ const AddonPerformanceContainer = () => {
                 motors can take your driving experience to the next level.
                 Upgrade with us and feel the diference.
               </Text>
-            </Box>
+            </Stack>
             <Stack display={"flex"} justifyContent={"end"}>
               <Box
                 textStyle="Gentona"
