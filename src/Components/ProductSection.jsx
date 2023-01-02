@@ -38,7 +38,7 @@ const ProductSectionBucket = () => {
 
 const ProductSectionHeadline = () => {
   return (
-    <HStack>
+    <HStack id="productsection">
       <Heading>
         <Text
           lineHeight={"120%"}
@@ -96,7 +96,7 @@ const ProductSectionContent = () => {
           flexWrap={"wrap"}
           w={"100%"}
           gap={"24px"}
-          justifyContent={"space-between"}
+          justifyContent={["space-between", "space-around", "space-between"]}
         >
           {CardData.map((item, index) => {
             let { img, title, content, range, backgroundColor } = item;
@@ -105,7 +105,7 @@ const ProductSectionContent = () => {
                 padding={"1rem"}
                 key={index}
                 display={"flex"}
-                justifyContent={"space-around"}
+                justifyContent={["space-around"]}
                 background={backgroundColor}
                 borderRadius={"md"}
                 w={"350px"}

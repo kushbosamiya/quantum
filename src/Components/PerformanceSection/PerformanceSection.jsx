@@ -81,7 +81,12 @@ const SliderComponent = () => {
   const [slider, setSlider] = useState(<Slider />);
 
   return (
-    <Box position={"relative"} width={["full"]} overflow={"hidden"}>
+    <Box
+      position={"relative"}
+      width={["full"]}
+      overflow={"hidden"}
+      id="performancesection"
+    >
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"

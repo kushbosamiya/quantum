@@ -26,6 +26,9 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 
+// smooth scroll
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+
 const NavBar = () => {
   return (
     <>
@@ -140,20 +143,36 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
         minH={["100%"]}
       >
         <Box alignItems={"center"} gap={"1rem"}>
-          <Text
-            fontSize={["md", "lg", "xl"]}
-            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          <ScrollLink
+            to="productsection"
+            // spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
           >
-            Products
-          </Text>
+            <Text
+              fontSize={["md", "lg", "xl"]}
+              _hover={{ color: "#16AA51", cursor: "pointer" }}
+            >
+              Products
+            </Text>
+          </ScrollLink>
         </Box>
         <Box display={"flex"} alignItems={"center"} gap={"1rem"}>
-          <Text
-            fontSize={["md", "lg", "xl"]}
-            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          <ScrollLink
+            to="performancesection"
+            // spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
           >
-            Performance
-          </Text>
+            <Text
+              fontSize={["md", "lg", "xl"]}
+              _hover={{ color: "#16AA51", cursor: "pointer" }}
+            >
+              Performance
+            </Text>
+          </ScrollLink>
         </Box>
 
         <Box alignItems={"center"} gap={"1rem"} display={["flex", "none"]}>
@@ -175,12 +194,20 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
         </Box>
 
         <Box display={"flex"} alignItems={"center"} gap={"1rem"}>
-          <Text
-            fontSize={["md", "lg", "xl"]}
-            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          <ScrollLink
+            to="contactsection"
+            // spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
           >
-            Contact
-          </Text>
+            <Text
+              fontSize={["md", "lg", "xl"]}
+              _hover={{ color: "#16AA51", cursor: "pointer" }}
+            >
+              Contact
+            </Text>
+          </ScrollLink>
         </Box>
       </Box>
     </>

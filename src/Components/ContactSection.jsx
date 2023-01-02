@@ -47,7 +47,7 @@ const ContactSectionComponent = () => {
         borderRadius="lg"
       >
         {/* headline */}
-        <HStack justifyContent={"center"} my={"1rem"}>
+        <HStack justifyContent={"center"} my={"1rem"} id="contactsection">
           <Text
             lineHeight={"170%"}
             fontWeight={"600"}
