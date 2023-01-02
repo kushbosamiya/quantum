@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import { Box, Heading, IconButton, Text, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  IconButton,
+  Text,
+  Image,
+  HStack,
+} from "@chakra-ui/react";
 
-// icons
-import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import Slider from "react-slick";
 
 // images
 import Ice from "../../Assets/Performance_Assets/final-ice.png";
@@ -12,198 +18,267 @@ import Rain from "../../Assets/Performance_Assets/final-rain.png";
 
 import Sand from "../../Assets/Performance_Assets/final-sand.png";
 
-import "../Custom-Styles/PerformanceStyles.css";
+// import "../Custom-Styles/PerformanceStyles.css";
 
 // imported pages
-import PerformanceQna from "./PerformanceQna";
 
 const PerformanceSection = () => {
   return (
     <>
       <Box>
-        <Slider />
+        <SliderComponent />
       </Box>
     </>
   );
 };
 
-const Performace_Section_Headline = () => {
-  return (
-    <>
-      <Heading>
-        <Text
-          my={[".25rem"]}
-          fontWeight={"500"}
-          textShadow={"1.728px 1.728px 0px rgb(146 200 62 / 50%)"}
-        >
-          Eve-rything You Wanted
-        </Text>
-      </Heading>
-    </>
-  );
-};
-
-const Slider = () => {
-  const [slideIndex, setSlideIndex] = useState(1);
+const SliderComponent = () => {
+  const settings = {
+    // dots: true,
+    arrows: false,
+    fade: true,
+    infinite: true,
+    autoplay: true,
+    speed: 100,
+    autoplaySpeed: 3000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   // data
   const CarouselComponent = [
     {
-      image: Ice,
+      image: Rain,
+      motorsize: 5,
+      voltage: 60,
+      power: 1200,
+      torque: 100,
+      efficiency: 88,
+      rpm: 710,
     },
     {
-      image: Rain,
+      image: Ice,
+      motorsize: 10,
+      voltage: 72,
+      power: 1500,
+      torque: 120,
+      efficiency: 88,
+      rpm: 755,
     },
     {
       image: Sand,
+      motorsize: 17,
+      voltage: 72,
+      power: 2000,
+      torque: 148,
+      efficiency: 90,
+      rpm: 810,
     },
   ];
 
   // on swipe function
-  const [touchPosition, setTouchPosition] = useState(null);
-  const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
-  };
-  const handleTouchMove = (e) => {
-    const touchDown = touchPosition;
 
-    if (touchDown === null) {
-      return;
-    }
-
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
-
-    if (diff > 5) {
-      nextSlide();
-    }
-
-    if (diff < -5) {
-      prevSlide();
-    }
-
-    setTouchPosition(null);
-  };
-
-  // slideshow
-  const [paused, setPaused] = useState(false);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!paused) {
-        nextSlide(slideIndex + 1);
-      }
-    }, 3000);
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  });
-
-  // carousel functions
-  const nextSlide = () => {
-    if (slideIndex !== CarouselComponent.length) {
-      setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === CarouselComponent.length) {
-      setSlideIndex(1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1);
-    } else if (slideIndex === 1) {
-      setSlideIndex(CarouselComponent.length);
-    }
-  };
-
-  const moveDot = (index) => {
-    setSlideIndex(index);
-  };
+  const [slider, setSlider] = useState(<Slider />);
 
   return (
-    <Box
-      display={"flex"}
-      gap={"2rem"}
-      paddingX={{ md: "5%" }}
-      paddingY={["2%", "1%"]}
-    >
-      {/* 1ts box */}
-      <Box minW={"40%"} maxW={"320px"}>
-        <Heading>
-          <Text
-            my={["0.5rem"]}
-            fontWeight={"500"}
-            lineHeight={"120%"}
-            fontSize={["4xl"]}
-            textShadow={"1.728px 1.728px 0px rgba(146, 200, 62, 0.5)"}
-            textStyle="Gentona"
-          >
-            We got your rear
-          </Text>
-        </Heading>
+    <Box position={"relative"} width={["full"]} overflow={"hidden"} px={"5%"}>
+      {/* CSS files for react-slick */}
+      <link
+        rel="stylesheet"
+        type="text/css"
+        charSet="UTF-8"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
 
-        <Box>
-          <PerformanceQna />
-        </Box>
-      </Box>
-      {/* 2nd Box */}
-      <Box w={"60%"}>
+      {/* Slider */}
+      <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {CarouselComponent.map((obj, index) => {
+          let { image, motorsize, efficiency, voltage, power, torque, rpm } =
+            obj;
           return (
-            <Box
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              my={"2%"}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              key={index}
-              className={
-                slideIndex === index + 1 ? "slide active-anim" : "slide"
-              }
-            >
+            <span key={index}>
+              <HStack
+                // 1st child
+                h={"12vh"}
+                justifyContent={"space-around"}
+                backgroundColor={"rgba(0,0,0,0.6)"}
+                padding={"2%"}
+              >
+                <Box
+                  // border={"1px solid "}
+                  display={"flex"}
+                  gap={".15rem"}
+                  flexDirection={"column"}
+                  textAlign={"center"}
+                  color={"white"}
+                >
+                  <Text textStyle="Gentona_Medium" fontSize={["sm", "3xl"]}>
+                    {motorsize}
+                    <span>inch</span>
+                  </Text>
+                  <Text
+                    textStyle="Gentona_Book"
+                    fontSize={"md"}
+                    opacity={"0.8"}
+                  >
+                    Hub Motors
+                  </Text>
+                </Box>
+
+                <Box
+                  // border={"1px solid "}
+                  display={"flex"}
+                  gap={".15rem"}
+                  flexDirection={"column"}
+                  textAlign={"center"}
+                  color={"white"}
+                >
+                  <Text textStyle="Gentona_Medium" fontSize={["sm", "3xl"]}>
+                    {voltage}
+                    <span></span>
+                  </Text>
+                  <Text
+                    textStyle="Gentona_Book"
+                    fontSize={"md"}
+                    opacity={"0.8"}
+                  >
+                    Rated Voltage
+                  </Text>
+                </Box>
+
+                <Box
+                  // border={"1px solid "}
+                  display={"flex"}
+                  gap={".15rem"}
+                  flexDirection={"column"}
+                  textAlign={"center"}
+                  color={"white"}
+                >
+                  <Text textStyle="Gentona_Medium" fontSize={["sm", "3xl"]}>
+                    {power}
+                    <span></span>
+                  </Text>
+                  <Text
+                    textStyle="Gentona_Book"
+                    fontSize={"md"}
+                    opacity={"0.8"}
+                  >
+                    Rated Power
+                  </Text>
+                </Box>
+
+                <Box
+                  // border={"1px solid "}
+                  display={["none", "none", "none", "flex"]}
+                  gap={".15rem"}
+                  flexDirection={"column"}
+                  textAlign={"center"}
+                  color={"white"}
+                >
+                  <Text textStyle="Gentona_Medium" fontSize={["xs", "3xl"]}>
+                    {torque}
+                    <span> Nm</span>
+                  </Text>
+                  <Text
+                    textStyle="Gentona_Book"
+                    fontSize={"sm"}
+                    opacity={"0.8"}
+                  >
+                    Max Torque
+                  </Text>
+                </Box>
+
+                <Box
+                  // border={"1px solid "}
+                  display={["none", "none", "none", "flex"]}
+                  gap={".15rem"}
+                  flexDirection={"column"}
+                  textAlign={"center"}
+                  color={"white"}
+                >
+                  <Text textStyle="Gentona_Medium" fontSize={["xs", "3xl"]}>
+                    {efficiency}
+                    <span>%</span>
+                  </Text>
+                  <Text
+                    textStyle="Gentona_Book"
+                    fontSize={["sm"]}
+                    opacity={"0.8"}
+                  >
+                    Efficiency
+                  </Text>
+                </Box>
+
+                <Box
+                  // border={"1px solid "}
+                  display={["none", "none", "flex"]}
+                  gap={".15rem"}
+                  flexDirection={"column"}
+                  textAlign={"center"}
+                  color={"white"}
+                >
+                  <Text textStyle="Gentona_Medium" fontSize={["xs", "3xl"]}>
+                    {rpm}
+                    <span></span>
+                  </Text>
+                  <Text
+                    textStyle="Gentona_Book"
+                    fontSize={["sm"]}
+                    opacity={"0.8"}
+                  >
+                    Max RPM
+                  </Text>
+                </Box>
+              </HStack>
+
               <Box
+                padding={["2%"]}
+                marginTop={{ xl: "1rem" }}
+                width={["100%", "80%", "70%", "60%"]}
+                // boxSize={["xs", "50%"]}
+                position={["relative"]}
+                left={["0%", "10%", "35%", "45%"]}
                 display={"flex"}
                 justifyContent={"center"}
                 alignItems={"center"}
               >
-                <Image
-                  src={obj.image}
-                  boxSize={"100%"}
-                  maxW={"xl"}
-                  objectFit={"cover"}
-                />
+                <Image src={image} />
               </Box>
-            </Box>
+            </span>
           );
         })}
+      </Slider>
+      {/* headding */}
+      <Box
+        width={["100%", "100%"]}
+        position={["relative", "absolute"]}
+        bottom={["-5%", "0%", "30%"]}
+        padding={["2%"]}
+        display={"flex"}
+        justifyContent={["center", "center", "start"]}
+      >
+        <Heading textAlign={{ xl: "center" }}>
+          <Text
+            fontWeight={"500"}
+            lineHeight={"120%"}
+            fontSize={["2xl", "3xl", "4xl", "5xl"]}
+            textShadow={"1.728px 1.728px 0px rgba(146, 200, 62, 0.5)"}
+            textStyle="Gentona"
+          >
+            We Got Your Rear
+          </Text>
+        </Heading>
       </Box>
     </Box>
   );
 };
 
 export default PerformanceSection;
-
-function BtnSlider({ direction, moveSlide }) {
-  return (
-    <IconButton
-      aria-label="right-arrow"
-      backgroundColor={"#F2F4F6"}
-      borderRadius={"full"}
-      zIndex={2}
-      onClick={moveSlide}
-    >
-      {direction === "next" ? (
-        <MdKeyboardArrowLeft size={"20"} color={"rgb(32, 32, 32)"} />
-      ) : (
-        <MdKeyboardArrowRight size={"20"} color={"rgb(32, 32, 32)"} />
-      )}
-    </IconButton>
-  );
-}
 
 //todo 0) plse place and style all the component according to chakra ui --//done
 //todo 1) plse place carousel buttons along with headline --//done
