@@ -185,12 +185,20 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
         </Box>
 
         <Box display={["flex", "none"]} alignItems={"center"} gap={"1rem"}>
-          <Text
-            fontSize={["md", "lg", "xl"]}
-            _hover={{ color: "#16AA51", cursor: "pointer" }}
+          <ScrollLink
+            to="aboutsection"
+            // spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
           >
-            About Us
-          </Text>
+            <Text
+              fontSize={["md", "lg", "xl"]}
+              _hover={{ color: "#16AA51", cursor: "pointer" }}
+            >
+              About Us
+            </Text>
+          </ScrollLink>
         </Box>
 
         <Box display={"flex"} alignItems={"center"} gap={"1rem"}>

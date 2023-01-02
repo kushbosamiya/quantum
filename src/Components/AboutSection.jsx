@@ -17,7 +17,7 @@ import Lakhan from "../../src/Assets/Performance_Assets/lakhan.png";
 const AboutSection = () => {
   return (
     <>
-      <Box paddingX={["5%"]} paddingY={["2%", "1%"]}>
+      <Box paddingX={["5%"]} paddingY={["2%", "1%"]} id="aboutsection">
         <AboutSectionSubComponent />
       </Box>
     </>
