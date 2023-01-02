@@ -10,14 +10,14 @@ import FooterSec from "../Components/FooterSec";
 const HomePage = () => {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <HeroSection /> */}
+      <Navbar />
+      <HeroSection />
       <PerformanceSection />
       <AddonPerformance />
       <ProductSection />
-      {/* <AboutSection /> */}
+      <AboutSection />
       {/* <FooterSection /> */}
-      {/* <FooterSec /> */}
+      <FooterSec />
     </>
   );
 };
