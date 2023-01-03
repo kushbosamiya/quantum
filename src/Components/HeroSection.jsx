@@ -45,7 +45,8 @@ function HeroSection() {
       scrollTrigger: {
         trigger: "#container",
         toggleActions: "restart pause resume pause",
-        start: "-150px center",
+        start: "-250px top",
+        // start:"-10% top",
         // start: () => "+=" + videos.offsetHeight,
         // end: "+=300px",
         end: () => "+=" + videos.offsetWidth,

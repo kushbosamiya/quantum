@@ -87,6 +87,7 @@ const AddonPerformanceContainer = () => {
                 // color={"#5B5B5B"}
                 opacity={"0.5"}
                 lineHeight={"160%"}
+                letterSpacing={["5%", "10%", "15%", "20%"]}
               >
                 Our BLDC Hub motors are designed for efciency and optimised for
                 electric vehicle perormance. They ofer exceptional range and
@@ -95,6 +96,7 @@ const AddonPerformanceContainer = () => {
                 upgrading your electric vehicle.
               </Text>
               <Text
+                letterSpacing={["5%", "10%", "15%", "20%"]}
                 display={["none", "block"]}
                 textStyle="Gentona_Book"
                 fontWeight={"400"}
@@ -128,10 +130,10 @@ const AddonPerformanceContainer = () => {
                 <Box
                   fontWeight={"500"}
                   fontSize={["lg", "xl", "2xl"]}
-                  opacity={"1"}
+                  opacity={"0.5"}
                   color={"white"}
                 >
-                  QUANTUMEV STUDIO
+                  QUANTUMEV <span>STUDIO</span>
                 </Box>
               </Box>
             </Stack>

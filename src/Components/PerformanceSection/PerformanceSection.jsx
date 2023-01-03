@@ -12,11 +12,11 @@ import {
 import Slider from "react-slick";
 
 // images
-import Ice from "../../Assets/Performance_Assets/final-ice.png";
+import Ice from "../../Assets/Performance_Assets/final-ice.webp";
 
-import Rain from "../../Assets/Performance_Assets/final-rain.png";
+import Rain from "../../Assets/Performance_Assets/final-rain.webp";
 
-import Sand from "../../Assets/Performance_Assets/final-sand.png";
+import Sand from "../../Assets/Performance_Assets/final-sand.webp";
 
 // import "../Custom-Styles/PerformanceStyles.css";
 

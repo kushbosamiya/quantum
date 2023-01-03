@@ -11,8 +11,9 @@ import {
 } from "@chakra-ui/react";
 
 import { SiInstagram } from "react-icons/si";
-import { BsInstagram, BsTwitter } from "react-icons/bs";
-import { FiFacebook } from "react-icons/fi";
+import { BsLinkedin, BsTwitter } from "react-icons/bs";
+
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 // images
 import Logos from "../Assets/Logo/new-logo.png";
@@ -25,7 +26,7 @@ const Logo = () => {
   );
 };
 
-const SocialButton = ({ children }) => {
+const SocialButton = ({ children, href, label }) => {
   return (
     <chakra.button
       bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
@@ -34,7 +35,7 @@ const SocialButton = ({ children }) => {
       h={8}
       cursor={"pointer"}
       as={"a"}
-      //   href={href}
+      href={href}
       display={"inline-flex"}
       alignItems={"center"}
       justifyContent={"center"}
@@ -50,6 +51,8 @@ const SocialButton = ({ children }) => {
 };
 
 export default function SmallCentered() {
+  let currYear = new Date().getFullYear();
+
   return (
     <Box color={useColorModeValue("gray.700", "gray.200")}>
       <Container
@@ -62,18 +65,43 @@ export default function SmallCentered() {
       >
         <Logo />
         <Stack direction={"row"} spacing={6}>
-          <Link href={"#"} fontSize={["lg"]}>
-            Home
-          </Link>
-          <Link href={"#"} fontSize={["lg"]}>
-            About
-          </Link>
-          <Link href={"#"} fontSize={["lg"]}>
+          <ScrollLink
+            to="navbar"
+            // spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
+          >
+            <Link href={"/"} fontSize={["lg"]}>
+              Home
+            </Link>
+          </ScrollLink>
+
+          <ScrollLink
+            to="aboutsection"
+            // spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
+          >
+            <Link href={"#"} fontSize={["lg"]}>
+              About
+            </Link>
+          </ScrollLink>
+          {/* <Link href={"#"} fontSize={["lg"]}>
             Blog
-          </Link>
-          <Link href={"#"} fontSize={["lg"]}>
-            Contact
-          </Link>
+          </Link> */}
+          <ScrollLink
+            to="contactsection"
+            // spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
+          >
+            <Link href={"#"} fontSize={["lg"]}>
+              Contact
+            </Link>
+          </ScrollLink>
         </Stack>
       </Container>
 
@@ -92,7 +120,7 @@ export default function SmallCentered() {
           align={{ base: "center", md: "center" }}
         >
           <Text textAlign={"center"}>
-            © 2022 Quantum Ev-Tech All rights reserved
+            © {currYear} Quantum Ev-Tech All rights reserved
           </Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton
@@ -101,8 +129,13 @@ export default function SmallCentered() {
             >
               <BsTwitter />
             </SocialButton>
-            <SocialButton label={"YouTube"} href={"#"}>
-              <FiFacebook />
+            <SocialButton
+              label={"Linkedin"}
+              href={
+                "https://www.linkedin.com/company/quantum-ev-tech/?viewAsMember=true"
+              }
+            >
+              <BsLinkedin />
             </SocialButton>
             <SocialButton label={"Instagram"} href={"#"}>
               <SiInstagram />

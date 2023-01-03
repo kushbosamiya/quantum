@@ -154,6 +154,8 @@ const ContactSectionComponent = () => {
               flexDirection={["column", "row"]}
             >
               <Text
+                as={"a"}
+                href={`mailto:${`info@quantumevtech.com`}`}
                 textStyle="Gentona_Medium"
                 fontWeight={"bold"}
                 opacity={"0.6"}
@@ -162,6 +164,8 @@ const ContactSectionComponent = () => {
                 info@quantumevtech.com
               </Text>
               <Text
+                as={"a"}
+                href={`tel:${`9033794951`}`}
                 textStyle="Gentona_Medium"
                 fontWeight={"bold"}
                 opacity={"0.6"}

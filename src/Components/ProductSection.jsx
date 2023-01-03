@@ -10,12 +10,14 @@ import {
   Button,
 } from "@chakra-ui/react";
 
+import Brochure from "../Assets/productsection/QuantumEV-Brochure.pdf";
+
 // images
-import Ice from "../../src/Assets/productsection/prod-1.jpeg";
+import Ice from "../../src/Assets/productsection/prod-1.webp";
 
-import Rain from "../../src/Assets/productsection/prod-2.jpeg";
+import Rain from "../../src/Assets/productsection/prod-2.webp";
 
-import Sand from "../../src/Assets/productsection/prod-3.jpeg";
+import Sand from "../../src/Assets/productsection/prod-3.webp";
 
 const ProductSection = () => {
   return (
@@ -59,7 +61,7 @@ const ProductSectionHeadline = () => {
 const ProductSectionContent = () => {
   const CardData = [
     {
-      img: Rain,
+      img: Sand,
       title: `17inch Q-HUB`,
       content: `Best suited for motorcycle’s 
       rear wheels, our 17” BLDC Hub 
@@ -68,7 +70,7 @@ const ProductSectionContent = () => {
       backgroundColor: `#FAEFE7`,
     },
     {
-      img: Sand,
+      img: Rain,
       title: `10inch Q-HUB`,
       content: `Our 10” BLDC Hub Motor 
       designed and developed 
@@ -106,7 +108,7 @@ const ProductSectionContent = () => {
                 key={index}
                 display={"flex"}
                 justifyContent={["space-around"]}
-                background={'#d5d5d5'}
+                background={"#d5d5d5"}
                 borderRadius={"md"}
                 w={"350px"}
                 minH={"md"}
@@ -115,7 +117,7 @@ const ProductSectionContent = () => {
                 <Box display={"flex"} p={".5rem"} justifyContent={"center"}>
                   <Image
                     // border={"1px solid"}
-                    height={["200px"]}
+                    height={["190px"]}
                     width={["300px"]}
                     src={img}
                     borderRadius={"md"}
@@ -160,7 +162,9 @@ const ProductSectionContent = () => {
                       boxShadow: "3px 3px 3px 2px #92c83e",
                     }}
                     as={"a"}
-                    href="https://drive.google.com/file/d/1vJyZP2gOoh5jJHvajZJJo5JKS-YJeLuQ/view?usp=sharing"
+                    href={
+                      "https://drive.google.com/file/d/1selvQMRyemyZAJ0KwWuqysp9cKw7tfIn/view?usp=share_link"
+                    }
                     target="_blank"
                   >
                     Know more

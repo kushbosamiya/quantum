@@ -9,9 +9,6 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-// use navigate
-import { useNavigate } from "react-router-dom";
-
 // logo
 import Logo from "../Assets/Logo/new-logo.png";
 
@@ -45,6 +42,7 @@ const NavBarContainer = () => {
   const toggle = () => setIsOpen(!SetOpen);
   return (
     <Flex
+      class
       h={["12vh"]}
       alignItems={["center"]}
       justifyContent={["space-between"]}
@@ -134,6 +132,7 @@ const NavLinks = ({ isOpen, onOpen, onClose }) => {
   return (
     <>
       <Box
+        id="navbar"
         display={[isOpen ? "inline-flex" : "none", "flex"]}
         flexDirection={["column", "row"]}
         justifyContent={"space-around"}
