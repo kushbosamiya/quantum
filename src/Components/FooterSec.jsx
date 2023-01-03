@@ -120,7 +120,7 @@ export default function SmallCentered() {
           align={{ base: "center", md: "center" }}
         >
           <Text textAlign={"center"}>
-            © {currYear} Quantum Ev-Tech All rights reserved
+            © {currYear} QuantumEv-Tech All rights reserved
           </Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton
