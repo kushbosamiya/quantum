@@ -106,7 +106,7 @@ const ProductSectionContent = () => {
                 key={index}
                 display={"flex"}
                 justifyContent={["space-around"]}
-                background={backgroundColor}
+                background={'#d5d5d5'}
                 borderRadius={"md"}
                 w={"350px"}
                 minH={"md"}

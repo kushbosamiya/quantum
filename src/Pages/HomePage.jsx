@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      {/* <HeroSection /> */}
+      <HeroSection />
       <PerformanceSection />
       <AddonPerformance />
       <ProductSection />

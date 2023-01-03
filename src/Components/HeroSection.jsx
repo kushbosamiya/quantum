@@ -1,59 +1,132 @@
 import React, { useRef, useEffect } from "react";
+import { Box } from "@chakra-ui/react";
 
 import gsap from "gsap";
 
-import "./Custom-Styles/herosection.css";
+// import "./Custom-Styles/herosection.css";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { Observer } from "gsap/Observer";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
+function HeroSection() {
   const videoElement = useRef(null);
 
   useEffect(() => {
-    const video = videoElement.current;
+    const video = document.querySelector(".video-background");
+    const videos = document.querySelector("video");
 
-    // Set up ScrollMagic controller and scene
-    const controller = new ScrollMagic.Controller();
-    const scene = new ScrollMagic.Scene({
-      duration: video.duration,
-      triggerElement: video,
-      triggerHook: 0,
-    })
-      .setPin(video)
-      .addTo(controller);
+    let src = video.currentSrc || video.src;
+    console.log(video, src);
 
-    // Set up zoom animation
-    gsap.to(video, {
-      duration: 1,
-      scale: 1.05,
-      ease: "none",
+    /* Make sure the video is 'activated' on iOS */
+    function once(el, event, fn, opts) {
+      var onceFn = function (e) {
+        el.removeEventListener(event, onceFn);
+        fn.apply(this, arguments);
+      };
+      el.addEventListener(event, onceFn, opts);
+      return onceFn;
+    }
+
+    once(document.documentElement, "touchstart", function (e) {
+      video.play();
+      video.pause();
     });
 
-    // Update video current time based on scroll position
-    let scrollpos = 0;
-    let delay = 0;
-    let accelerator = 0.1;
-    scene.on("update", (e) => {
-      scrollpos = e.scrollPos / 1000;
+    /* ---------------------------------- */
+    /* Scroll Control! */
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    let tl = gsap.timeline({
+      defaults: { duration: 1 },
+      scrollTrigger: {
+        trigger: "#container",
+        toggleActions: "restart pause resume pause",
+        start: "-150px center",
+        // start: () => "+=" + videos.offsetHeight,
+        // end: "+=300px",
+        end: () => "+=" + videos.offsetWidth,
+        // markers: "true",
+        // pin: true,
+        ease: "Power2.easein",
+        scrub: true,
+      },
     });
-    setInterval(() => {
-      delay += (scrollpos - delay) * accelerator;
-      video.currentTime = delay;
-    }, 33.33);
+
+    once(video, "loadedmetadata", () => {
+      tl.fromTo(
+        video,
+        {
+          currentTime: 0,
+        },
+        {
+          currentTime: video.duration || 1,
+        }
+      );
+    });
+
+    /* When first coded, the Blobbing was important to ensure the browser wasn't dropping previously played segments, but it doesn't seem to be a problem now. Possibly based on memory availability? */
+    setTimeout(function () {
+      if (window["fetch"]) {
+        fetch(src)
+          .then((response) => response.blob())
+          .then((response) => {
+            var blobURL = URL.createObjectURL(response);
+
+            var t = video.currentTime;
+            once(document.documentElement, "touchstart", function (e) {
+              video.play();
+              video.pause();
+            });
+
+            video.setAttribute("src", blobURL);
+            video.currentTime = t + 0.01;
+          });
+      }
+    }, 1000);
   }, []);
 
   return (
-    <div id="parent">
-      <video ref={videoElement} width="950" height="534" id="animContainer">
-        <source
-          src="https://pjswhwmbjralgwyejndl.supabase.co/storage/v1/object/public/images/0001.mp4"
-          type="video/mp4"
-        />
-      </video>
-    </div>
+    // <div className="super-parent">
+    //   <div className="video-area">
+    //     <div id="parent">
+    //       <video ref={videoElement} width="950" height="534" id="animContainer">
+    //         <source
+    //           src="https://pjswhwmbjralgwyejndl.supabase.co/storage/v1/object/public/images/0001.mp4"
+    //           type="video/mp4"
+    //         />
+    //       </video>
+    //     </div>
+    //   </div>
+    // </div>
+    <span>
+      <div className="video-area">
+        <div className="parent">
+          <Box
+            display={"flex"}
+            justifyContent={"center"}
+            boxSize={["100%", "60%"]}
+            pos={["unset", "relative"]}
+            left={"20%"}
+          >
+            <video
+              src="https://pjswhwmbjralgwyejndl.supabase.co/storage/v1/object/public/images/0001.mp4"
+              type="video/mp4"
+              playsInline={true}
+              // webkit-playsinline="true"
+              // preload="auto"
+              // muted="muted"
+              className="video-background"
+            ></video>
+          </Box>
+        </div>
+      </div>
+      <div id="container"></div>
+    </span>
   );
 }
 
-export default App;
+export default HeroSection;

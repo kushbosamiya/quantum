@@ -113,6 +113,8 @@ const SliderComponent = () => {
                 // 1st child
                 h={"12vh"}
                 justifyContent={"space-around"}
+                // backgroundColor={"#d5d5d5"}
+
                 backgroundColor={"rgba(0,0,0,0.6)"}
                 padding={"2%"}
               >
