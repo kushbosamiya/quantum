@@ -72,9 +72,9 @@ export default function SmallCentered() {
             offset={-70}
             duration={1000}
           >
-            <Link href={"/"} fontSize={["lg"]}>
+            <Text href={"/"} fontSize={["lg"]}>
               Home
-            </Link>
+            </Text>
           </ScrollLink>
 
           <ScrollLink
@@ -84,9 +84,9 @@ export default function SmallCentered() {
             offset={-70}
             duration={1000}
           >
-            <Link href={"#"} fontSize={["lg"]}>
+            <Text href={"#"} fontSize={["lg"]}>
               About
-            </Link>
+            </Text>
           </ScrollLink>
           {/* <Link href={"#"} fontSize={["lg"]}>
             Blog
@@ -98,9 +98,9 @@ export default function SmallCentered() {
             offset={-70}
             duration={1000}
           >
-            <Link href={"#"} fontSize={["lg"]}>
+            <Text href={"#"} fontSize={["lg"]}>
               Contact
-            </Link>
+            </Text>
           </ScrollLink>
         </Stack>
       </Container>
@@ -125,7 +125,7 @@ export default function SmallCentered() {
           <Stack direction={"row"} spacing={6}>
             <SocialButton
               label={"Twitter"}
-              href={"https://twitter.com/14harsheel"}
+              href={"https://twitter.com/EvQuantum"}
             >
               <BsTwitter />
             </SocialButton>

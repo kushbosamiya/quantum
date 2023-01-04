@@ -14,11 +14,12 @@ function HeroSection() {
   const videoElement = useRef(null);
 
   useEffect(() => {
+    console.clear();
     const video = document.querySelector(".video-background");
     const videos = document.querySelector("video");
 
     let src = video.currentSrc || video.src;
-    console.log(video, src);
+    // console.log(video, src);
 
     /* Make sure the video is 'activated' on iOS */
     function once(el, event, fn, opts) {
@@ -45,7 +46,7 @@ function HeroSection() {
       scrollTrigger: {
         trigger: "#container",
         toggleActions: "restart pause resume pause",
-        start: "-250px top",
+        start: "-225px top",
         // start:"-10% top",
         // start: () => "+=" + videos.offsetHeight,
         // end: "+=300px",
@@ -54,6 +55,7 @@ function HeroSection() {
         // pin: true,
         ease: "Power2.easein",
         scrub: true,
+        delay: 1.5,
       },
     });
 
@@ -109,17 +111,17 @@ function HeroSection() {
           <Box
             display={"flex"}
             justifyContent={"center"}
-            boxSize={["100%", "60%"]}
+            boxSize={["100%", "70%"]}
             pos={["unset", "relative"]}
-            left={"20%"}
+            left={"15%"}
           >
             <video
-              src="https://pjswhwmbjralgwyejndl.supabase.co/storage/v1/object/public/images/0001.mp4"
+              src="https://pjswhwmbjralgwyejndl.supabase.co/storage/v1/object/public/images/0002.mp4"
               type="video/mp4"
               playsInline={true}
               // webkit-playsinline="true"
               // preload="auto"
-              // muted="muted"
+              muted="muted"
               className="video-background"
             ></video>
           </Box>

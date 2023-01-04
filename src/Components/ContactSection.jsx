@@ -23,7 +23,7 @@ import {
   MdOutlineEmail,
 } from "react-icons/md";
 
-import Motor from "../Assets/productsection/prod-2.jpeg";
+import Motor from "../Assets/FooterSection/motor-3.webp";
 
 import { BsGithub, BsDiscord, BsPerson, BsTelephone } from "react-icons/bs";
 
@@ -154,8 +154,8 @@ const ContactSectionComponent = () => {
               flexDirection={["column", "row"]}
             >
               <Text
-                as={"a"}
-                href={`mailto:${`info@quantumevtech.com`}`}
+                // as={"a"}
+                // href={`mailto:${`info@quantumevtech.com`}`}
                 textStyle="Gentona_Medium"
                 fontWeight={"bold"}
                 opacity={"0.6"}
@@ -164,8 +164,8 @@ const ContactSectionComponent = () => {
                 info@quantumevtech.com
               </Text>
               <Text
-                as={"a"}
-                href={`tel:${`9033794951`}`}
+                // as={"a"}
+                // href={`tel:${`9033794951`}`}
                 textStyle="Gentona_Medium"
                 fontWeight={"bold"}
                 opacity={"0.6"}

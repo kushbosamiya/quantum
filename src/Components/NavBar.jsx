@@ -42,7 +42,6 @@ const NavBarContainer = () => {
   const toggle = () => setIsOpen(!SetOpen);
   return (
     <Flex
-      class
       h={["12vh"]}
       alignItems={["center"]}
       justifyContent={["space-between"]}
