@@ -92,7 +92,7 @@ const AddonPerformanceContainer = () => {
                 Our BLDC Hub motors are designed for efciency and optimised for
                 electric vehicle perormance. They ofer exceptional range and
                 cost-saving capabilities, along with high levels of power and
-                torque. Compact and robustly built, they are perect for
+                torque. Compact and robustly built, they are perfect for
                 upgrading your electric vehicle.
               </Text>
               <Text
@@ -106,7 +106,7 @@ const AddonPerformanceContainer = () => {
                 opacity={"0.5"}
                 lineHeight={"160%"}
               >
-                Customise it to your specifc requirements, our top-perorming
+                Customise it to your specifc requirements, our top-performing
                 motors can take your driving experience to the next level.
                 Upgrade with us and feel the diference.
               </Text>
