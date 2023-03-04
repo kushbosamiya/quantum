@@ -14,7 +14,7 @@ import {
 import Ram from "../../src/Assets/Performance_Assets/ram.png";
 import Lakhan from "../../src/Assets/Performance_Assets/lakhan.png";
 
-const AboutSection = () => {
+const   AboutSection = () => {
   return (
     <>
       <Box paddingX={["5%"]} paddingY={["2%", "1%"]} id="aboutsection">
@@ -106,9 +106,9 @@ const AboutCompany = () => {
           width={{ xl: "600px" }}
           opacity={"0.6"}
         >
-          QuantumEV Tech is a future enthusiastic company, working to redefine
-          mobility as we know it. Electric is here and we at Quantum wants to
-          deliver quintessential Hub motors for the Indian EV makers.
+        QuantumEV Tech is a future enthusiastic company, working to redefine
+          Mobility as we know it. Electric is here and we at Quantum wants to
+          Deliver quintessential Hub motors for the Indian EV makers.
         </Text>
         <Text
           textStyle="Gentona_Book"
@@ -119,7 +119,7 @@ const AboutCompany = () => {
           opacity={"0.6"}
         >
           Building everything from ground up team Quantum is going lengths and
-          breaths to evolve Indian EV market.
+          Breaths to evolve the Indian EV market.
         </Text>
       </Box>
     </HStack>
