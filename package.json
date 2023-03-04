@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.10.5",
     "@loadable/component": "^5.15.2",
     "@supabase/supabase-js": "^2.2.2",
+    "@vercel/analytics": "^0.1.11",
     "framer-motion": "^6.5.1",
     "gsap": "^3.11.4",
     "react": "^18.2.0",
@@ -23,7 +24,8 @@
     "react-router-dom": "^6.6.1",
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "vercel": "^28.16.12"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

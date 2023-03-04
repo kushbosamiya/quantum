@@ -10,6 +10,10 @@ import {
   extendTheme,
 } from "@chakra-ui/react";
 
+
+// analytics 
+import { Analytics } from '@vercel/analytics/react';
+
 // custom fonts
 import CustomFonts from "../src/Assets/custom-fonts";
 
@@ -58,6 +62,7 @@ function App() {
         <Suspense fallback={renderLoader()}>
           <>
             <Home />
+            <Analytics />
           </>
         </Suspense>
       </ChakraProvider>
